@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 26px;
+  min-height: 100dvh;
+
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+}

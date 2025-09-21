@@ -1,0 +1,10 @@
+<img src="assets/logo.png" width="520" height="80" alt="logo">
+<form (ngSubmit)="onSubmit()">
+  <p-iconfield>
+    <p-inputicon class="pi pi-search" />
+    <input type="text" name="username" pInputText [(ngModel)]="username" (keyup.enter)="onSubmit()"
+      placeholder="Pesquisar..." />
+  </p-iconfield>
+
+  <p-button type="submit" label="Buscar" />
+</form>
