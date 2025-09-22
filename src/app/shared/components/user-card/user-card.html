@@ -21,6 +21,30 @@
   }
 
   <div class="user-card__section">
+    @if (user.blog) {
+    <a [href]="user.blog" target="_blank">
+      <div class="user-card__info">
+        <span class="material-symbols-outlined">
+          link
+        </span>
+        {{ user.blog }}
+      </div>
+    </a>
+    }
+
+    @if (user.twitter_username) {
+    <a [href]="'https://x.com/'+ user.twitter_username" target="_blank">
+      <div class="user-card__info">
+        <span class="material-symbols-outlined">
+          link
+        </span>
+        {{ 'https://x.com/'+ user.twitter_username }}
+      </div>
+    </a>
+    }
+  </div>
+
+  <div class="user-card__section">
     @if (user.following) {
     <div class="user-card__info">
       <span class="material-symbols-outlined"> favorite </span>
