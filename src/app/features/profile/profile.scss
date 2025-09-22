@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+
+  section {
+    width: 1920px;
+    margin: 0 auto 50px;
+    padding: 0 96px;
+
+    form {
+      display: flex;
+      gap: 12px;
+    }
+
+    main {
+      display: flex;
+      gap: 37px;
+      margin-top: 40px;
+
+      app-repo-card {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
+
+
