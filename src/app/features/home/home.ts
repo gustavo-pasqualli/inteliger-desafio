@@ -1,13 +1,15 @@
 import { GithubUserService } from './../../core/services/github-user.service';
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { GithubUser } from '../../shared/models/github-user.model';
+import { catchError, finalize, of, tap } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-home',
@@ -24,23 +26,33 @@ import { GithubUser } from '../../shared/models/github-user.model';
 })
 export class Home {
   private githubUserService = inject(GithubUserService);
+  private destroyRef = inject(DestroyRef);
   private router = inject(Router);
-  private route = inject(ActivatedRoute);
 
-  username: string = '';
+  username = '';
+  loading = false;
 
   onSubmit() {
-    this.githubUserService.listGithubUser(this.username).subscribe({
-      next: (data: GithubUser) => {
-        this.redirectProfile(data);
-      }
-    })
+    const search = this.username?.trim();
+
+    this.loading = true;
+
+    this.githubUserService.listGithubUser(search).pipe(
+      takeUntilDestroyed(this.destroyRef),
+      tap((data: GithubUser) => this.redirectProfile(data)),
+      catchError(err => {
+        return of(null);
+      }),
+      finalize(() => (this.loading = false))
+    )
+    .subscribe();
   }
 
   redirectProfile(data: GithubUser) {
+    if (!data) return;
+
     this.router.navigate(['/perfil'], {
-      relativeTo: this.route,
-      state: { data: data }
+      state: { data }
     });
   }
 }
