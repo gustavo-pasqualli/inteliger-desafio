@@ -1,4 +1,4 @@
-# 📖 Finder User
+# 📖 Dev Finder
 
 Aplicação Angular para busca de usuários do GitHub, exibindo informações de perfil e repositórios.  
 Construída com **Angular 20** e **PrimeNG**.
@@ -19,7 +19,7 @@ Clone o repositório:
 
 ```bash
 git clone https://github.com/gustavo-pasqualli/inteliger-desafio.git
-cd finder-user
+cd inteliger-desafio
 ```
 
 Instale as dependências com NPM:
