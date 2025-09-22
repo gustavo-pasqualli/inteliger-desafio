@@ -1,0 +1,60 @@
+:host {
+  width: 437px;
+  height: max-content;
+  padding: 42px 32px;
+  background-color: #F6F6F6;
+
+  .user-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    &__header {
+      display: flex;
+      gap: 16px;
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+      }
+
+      img {
+        width: 76px;
+        height: 76px;
+        border-radius: 100%;
+      }
+    }
+
+    &__name,
+    &__username,
+    &__bio {
+      font-size: 20px;
+    }
+
+    &__name {
+      font-weight: 700;
+    }
+
+    &__username,
+    &__bio {
+      font-weight: 400;
+    }
+
+    &__bio {
+      margin-top: 8px;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+    }
+
+    &__info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

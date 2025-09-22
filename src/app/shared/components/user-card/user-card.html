@@ -1,0 +1,54 @@
+<div class="user-card">
+  <a [href]="user.html_url" target="_blank" class="user-card__link">
+    <div class="user-card__header">
+      <img [src]="user.avatar_url" alt="" class="user-card__avatar" />
+
+      <div class="user-card__header-info">
+        <div class="user-card__name">
+          {{ user.name }}
+        </div>
+        <div class="user-card__username">
+          {{ '@' + user.login }}
+        </div>
+      </div>
+    </div>
+  </a>
+
+  @if (user.bio) {
+  <div class="user-card__bio">
+    {{ user.bio }}
+  </div>
+  }
+
+  <div class="user-card__section">
+    @if (user.following) {
+    <div class="user-card__info">
+      <span class="material-symbols-outlined"> favorite </span>
+      {{ user.following + ' seguindo' }}
+    </div>
+    }
+
+    @if (user.followers) {
+    <div class="user-card__info">
+      <span class="material-symbols-outlined"> groups </span>
+      {{ user.followers + ' seguidores' }}
+    </div>
+    }
+  </div>
+
+  <div class="user-card__section">
+    @if (user.location) {
+    <div class="user-card__info">
+      <span class="material-symbols-outlined"> location_on </span>
+      {{ user.location }}
+    </div>
+    }
+
+    @if (user.email) {
+    <div class="user-card__info">
+      <span class="material-symbols-outlined"> mail </span>
+      {{ user.email }}
+    </div>
+    }
+  </div>
+</div>
