@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GithubUser } from '../../shared/models/github-user.model';
+import { GithubRepo } from '../../shared/models/github-repo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class GithubUserService {
     return this.http.get<GithubUser>(this.url + `users/${username}`);
   }
 
-  listReposByGithubUser(username: string): Observable<GithubUser> {
-    return this.http.get<GithubUser>(this.url + `users/${username}/repos`);
+  listReposByGithubUser(username: string): Observable<GithubRepo[]> {
+    return this.http.get<GithubRepo[]>(this.url + `users/${username}/repos`);
   }
 }
