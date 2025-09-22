@@ -56,14 +56,18 @@ export class Profile {
 
   onSubmit() {
     const search = this.username?.trim();
-
     this.loading = true;
 
+    this.listGithubUser(search);
+  }
+
+  listGithubUser(search: string) {
     this.githubUserService.listGithubUser(search).pipe(
       takeUntilDestroyed(this.destroyRef),
       tap((data: GithubUser) => {
         this.user = data;
         this.listReposByGithubUser();
+        this.username = "";
       }),
       catchError(err => {
         return of(null);
@@ -74,11 +78,12 @@ export class Profile {
   }
 
   listReposByGithubUser() {
-    const username = this.user.login;
+    const username = this.user?.login;
+    if(!username) return
 
     this.githubUserService.listReposByGithubUser(username).subscribe({
       next: (data: GithubRepo[]) => {
-        this.repos = data;
+        this.repos = data.sort((a, b) => b.stargazers_count - a.stargazers_count);
       }
     })
   }

@@ -17,8 +17,12 @@
   </app-header>
 
   <main>
+    @if(user) {
     <app-user-card [user]="user"></app-user-card>
+    }
 
+    @if(repos.length) {
     <app-repo-card [repos]="repos"></app-repo-card>
+    }
   </main>
 </section>
