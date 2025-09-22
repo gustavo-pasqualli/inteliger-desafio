@@ -1,59 +1,76 @@
-# InteligerDesafio
+# 📖 Dev Finder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+Aplicação Angular para busca de usuários do GitHub, exibindo informações de perfil e repositórios.  
+Construída com **Angular 20** e **PrimeNG**.
 
-## Development server
+## 🚀 Requisitos
 
-To start a local development server, run:
+Antes de começar, verifique se você possui instalado:
+
+- **Node.js**: `>=20.x`  
+- **NPM**: `>=10.x` (ou use Yarn, se preferir, mas o projeto está configurado para NPM)  
+- **Angular CLI**: `^20.1.5`  
+
+> ⚠️ Recomendado usar **NVM** (Node Version Manager) para gerenciar versões de Node.
+
+## 📦 Instalação do projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/gustavo-pasqualli/inteliger-desafio.git
+cd inteliger-desafio
+```
+
+Instale as dependências com NPM:
+
+```bash
+npm install
+```
+
+## 🖥️ Rodando em ambiente de desenvolvimento
+
+Execute o comando:
+
+```bash
+npm start
+```
+
+Isso roda internamente:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação ficará disponível em:  
+👉 [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+## 🏗️ Build para deploy
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para gerar os arquivos otimizados para produção:
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
+Os artefatos ficarão disponíveis na pasta:
 
-To build the project run:
-
-```bash
-ng build
+```
+dist/inteliger-desafio/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Esses arquivos podem ser servidos por qualquer servidor HTTP (Nginx, Apache, Vercel, etc.).
 
-## Running unit tests
+## 📜 Scripts disponíveis
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- `npm start` → inicia o ambiente de desenvolvimento  
+- `npm run build` → gera a build de produção  
+- `npm run watch` → build contínua no modo desenvolvimento  
+- `npm test` → roda os testes unitários  
 
-```bash
-ng test
-```
+## 🛠️ Tecnologias principais
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular 20](https://angular.dev/)  
+- [PrimeNG 20](https://primeng.org/)  
+- [PrimeIcons](https://www.primefaces.org/primeicons/)  
+- [RxJS](https://rxjs.dev/)  
